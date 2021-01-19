@@ -13,6 +13,7 @@
     --secondary-bg-color: #1F644F;
 }
 
+
 /* ---------------------------------------------------------------
     Reset styling
 ---------------------------------------------------------------- */
@@ -32,7 +33,9 @@ ul, ol {
 button {
     background-color: transparent;
     border: none;
+    font-size: inherit;
 }
+
 
 /* ---------------------------------------------------------------
     Document structure
@@ -42,19 +45,19 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-width: 100%;
+    height: 100%;
 }
 
 body {
     display: grid;
-    grid-template-columns: auto auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     grid-template-areas: 
     "site-header"
     "page-title"
     "page-content"
     "site-footer";
     
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     font-family: 
     Roboto, 'Open Sans',
@@ -71,13 +74,37 @@ body * {
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-
-    word-break: break-word;
 }
 
 
+/* ---------------------------------------------------------------
+    Menues
+---------------------------------------------------------------- */
 
-/* Mobile menu -------------------------------------------------*/
+.primary-menu {
+    font-size: 1.4rem;
+}
+
+.secondary-menu {
+    display: flex;
+    flex-direction: row;
+    text-decoration: underline;
+}
+
+.secondary-menu li a::after {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    content: "/";
+}
+
+.secondary-menu li:last-of-type a::after {
+    content: none;
+}
+
+/* ---------------------------------------------------------------
+    Mobile menu
+---------------------------------------------------------------- */
 
 .site-nav {
     position: absolute;
@@ -85,7 +112,9 @@ body * {
 }
 
 
-/* Header ------------------------------------------------------*/
+/* ---------------------------------------------------------------
+    Header
+---------------------------------------------------------------- */
 
 .site-header {
     width: 100%;
@@ -95,8 +124,8 @@ body * {
 }
 
 .header-inner {
-    padding: 1rem 2rem;
     width: 100%;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -141,16 +170,21 @@ body * {
 }
 
 
-/* Page title ---------------------------------------------------*/
+/* ---------------------------------------------------------------
+    Page title
+---------------------------------------------------------------- */
 
 .page-title {
-    font-family: 'Merriweather', sans-serif;
+    width: 100%;
     background-color: var(--secondary-bg-color);
     color: var(--primary-bg-color);
+    font-family: 'Merriweather', sans-serif;
     grid-area: page-title;
 }
 
 .title-inner {
+    width: 100%;
+    max-width: 50rem;
     padding: 4rem 2rem 3rem 2rem;
 }
 
@@ -177,20 +211,82 @@ body * {
 }
 
 
-/* Page content --------------------------------------------------*/
+/* ---------------------------------------------------------------
+    Page content
+---------------------------------------------------------------- */
 
 .page-content {
+    width: 100%;
     grid-area: page-content;
 }
 
 .content-inner {
-    padding: 0 2rem;
+    width: 100%;
+    padding: 3rem 2rem;
+}
+
+/* Portfolio -----------------------------------------------------*/
+
+.filter-buttons {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.filter-buttons button {
+    margin: 0.25rem 0 0.25rem 0.5rem;
+}
+
+.project-container {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.project-container:last-of-type {
+    margin: 0;
+}
+
+.project-container img {
+    width: 100%;
+    border: var(--image-border)
+}
+
+.project-description {
+    padding: 1rem 0;
+}
+
+.project-title {
+    margin: 0 0 0.25rem 0;
+    font-family: 'Merriweather', sans-serif;
+}
+
+.project-links {
+    text-decoration: underline;
+}
+
+.project-links a::after {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    content: "/";
+}
+
+.project-links a:last-of-type::after {
+    content: none;
 }
 
 
-/* Footer --------------------------------------------------------*/
+/* ---------------------------------------------------------------
+    Footer
+---------------------------------------------------------------- */
 
 .site-footer {
+    width: 100%;
+    padding: 0 2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -199,5 +295,23 @@ body * {
 }
 
 .footer-inner {
-    padding: 0 2rem;
+    padding: 1rem 0 2rem 0;
+    width: 100%;
+    border-top: var(--border);
+}
+
+/* ---------------------------------------------------------------
+    Functional classes
+---------------------------------------------------------------- */
+
+.active {
+    font-weight: 600;
+}
+
+.display-none {
+    display: none;
+}
+
+.scroll-lock {
+    overflow: hidden;
 }
