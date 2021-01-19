@@ -1,1 +1,53 @@
 /* MOBILE -------------------------------------------------------*/
+
+/* ---------------------------------------------------------------
+    Variables
+---------------------------------------------------------------- */
+
+:root {
+    --border: 1px solid #A5A5A5;
+    --image-border: 1px solid #e0e0e0;
+    --primary-txt-color: #1e1e1e;
+    --secondary-txt-color: #5c5c5c;
+    --primary-bg-color: #FBFBFB;
+    --secondary-bg-color: #1F644F;
+}
+
+/* ---------------------------------------------------------------
+    Reset styling
+---------------------------------------------------------------- */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+
+/* ---------------------------------------------------------------
+    Document structure
+---------------------------------------------------------------- */
+
+html, body {
+    margin: 0;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-areas: 
+    "header"
+    "title"
+    "content"
+    "footer";
+
+    font-size: 1.2rem;
+    font-family: 
+    Roboto, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+
+    background-color: var(--primary-bg-color);
+    color: var(var(--primary-txt-color));
+}
