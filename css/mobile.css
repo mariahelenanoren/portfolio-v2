@@ -20,11 +20,18 @@
 a {
     text-decoration: none;
     color: inherit;
+    font-size: inherit;
 }
 
 ul, ol {
     padding: 0;
     margin: 0;
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
 }
 
 /* ---------------------------------------------------------------
@@ -33,21 +40,164 @@ ul, ol {
 
 html, body {
     margin: 0;
+    padding: 0;
     width: 100%;
+    min-width: 100%;
+}
 
+body {
     display: grid;
     grid-template-columns: auto auto 1fr auto;
     grid-template-areas: 
-    "header"
-    "title"
-    "content"
-    "footer";
-
+    "site-header"
+    "page-title"
+    "page-content"
+    "site-footer";
+    
     font-size: 1.2rem;
+    line-height: 1.5;
     font-family: 
     Roboto, 'Open Sans',
     'Helvetica Neue', sans-serif;
-
+    
     background-color: var(--primary-bg-color);
-    color: var(var(--primary-txt-color));
+    color: var(--primary-txt-color);
+}
+
+body * {
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    word-break: break-word;
+}
+
+
+
+/* Mobile menu -------------------------------------------------*/
+
+.site-nav {
+    position: absolute;
+    display: none;
+}
+
+
+/* Header ------------------------------------------------------*/
+
+.site-header {
+    width: 100%;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-bg-color);
+    grid-area: site-header;
+}
+
+.header-inner {
+    padding: 1rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    width: fit-content;
+    font-size: 1rem;
+    font-family: 'Merriweather', sans-serif;
+}
+
+.header-nav {
+    display: none;
+}
+
+
+/* Hamburger ---------------------------------------------------*/
+
+.nav-toggle {
+    position: relative;
+    width: 2.8rem;
+    height: calc(18px + 2px);
+}
+
+.nav-toggle span {
+    position: absolute;
+    width: calc(100% - 1rem);
+    height: 2px;
+    background-color: var(--primary-bg-color);
+    transition: .2s ease-in-out;
+}
+
+.nav-toggle :nth-child(1) {
+    top: 0rem;
+}
+.nav-toggle :nth-child(2) {
+    top: 9px;
+}
+.nav-toggle :nth-child(3) {
+    top: 18px;
+}
+
+
+/* Page title ---------------------------------------------------*/
+
+.page-title {
+    font-family: 'Merriweather', sans-serif;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-bg-color);
+    grid-area: page-title;
+}
+
+.title-inner {
+    padding: 4rem 2rem 3rem 2rem;
+}
+
+.front-title, .title {
+    position: relative;
+}
+
+.front-title::before,
+.title::before {
+    position: absolute;
+    content: "";
+    height: 0.3rem;
+    bottom: -0.5em;
+}
+
+.front-title::before {
+    background-color: var(--primary-bg-color);
+    width: 5rem;
+}
+
+.title::before {
+    background-color: var(--primary-txt-color);
+    width: 5rem;
+}
+
+
+/* Page content --------------------------------------------------*/
+
+.page-content {
+    grid-area: page-content;
+}
+
+.content-inner {
+    padding: 0 2rem;
+}
+
+
+/* Footer --------------------------------------------------------*/
+
+.site-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: site-footer;
+}
+
+.footer-inner {
+    padding: 0 2rem;
 }
