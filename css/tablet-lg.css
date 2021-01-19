@@ -1,2 +1,7 @@
 /* TABLET LARGE -------------------------------------------------------*/
 /* Min-width: 768px */
+
+.grid-col {
+    width: 49%;
+    margin-right: 2%;
+}

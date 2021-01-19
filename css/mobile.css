@@ -243,12 +243,19 @@ body * {
 
 .project-container {
     width: 100%;
-    margin-bottom: 2rem;
-    break-inside: avoid;
+    margin: 3rem 0 0 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, margin 0.4s ease-in-out;
 }
 
-.project-container:last-of-type {
-    margin: 0;
+.grid-col {
+    float: left;
+    width: 100%;
+    margin-right: 0;
+}
+
+.grid-col:last-of-type {
+    margin-right: 0;
 }
 
 .project-container img {
