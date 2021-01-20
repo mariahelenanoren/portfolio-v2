@@ -67,18 +67,17 @@
     <!------ PAGE CONTENT -------------------->
     <main class="page-content">
         <div class="content-inner">
-
             <div class="filter-buttons">
-                <button class="active">All</button>
-                <button>Web projects</button>
-                <button>Graphic design</button>
+                <button class="active" id="all">All</button>
+                <button id="web-project">Web projects</button>
+                <button id="graphic-design">Graphic design</button>
             </div>
-
-            <div class="portfolio-container" data-colcade="columns: .grid-col, items: .project-container">
+    
+            <div class="portfolio-container">
                 <div class="grid-col grid-col--1"></div>
                 <div class="grid-col grid-col--2"></div>
-
-                <div class="project-container">
+    
+                <div class="project-container web-project">
                     <img src="./assets/portfolio_images/calendar/screenshot-background(1).jpg" alt="calendar project">
                     <div class="project-description">
                         <h3 class="project-title">Calendar</h3>
@@ -87,8 +86,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="project-container">
+    
+                <div class="project-container web-project">
                     <img src="./assets/portfolio_images/javascript-game/screenshot-background(1).jpg" alt="javascript game project">
                     <div class="project-description">
                         <h3 class="project-title">Escape – a javascript game</h3>
@@ -97,10 +96,24 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="project-container graphic-design">
+                    <img src="./assets/portfolio_images/folder/folder-black(1).jpg" alt="tactile communication project">
+                    <div class="project-description">
+                        <h3 class="project-title">Tactile communication</h3>
+                    </div>
+                </div>
+                <div class="project-container graphic-design">
+                    <img src="./assets/portfolio_images/folder/folder-black(1).jpg" alt="tactile communication project">
+                    <div class="project-description">
+                        <h3 class="project-title">Tactile communication</h3>
+                    </div>
+                </div>
     
             </div>
-
         </div>
+
+
     </main>
 
     <!------ FOOTER -------------------------->

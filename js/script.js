@@ -120,12 +120,43 @@ function declareLoadAnimationElements() {
  * @param {Element} element 
  */
 function initiateLoadAnimation(element) {
-    console.log(element.getBoundingClientRect().top)
+    console.log(element.offsetTop)
     const viewportHeight = window.innerHeight;
     console.log(viewportHeight)
     /** If top of element is  above bottom of page, change element style */
     if (element.getBoundingClientRect().top <= viewportHeight) {
         element.style.opacity = "100";
         element.style.margin = "0 0 3rem 0";
+    }
+}
+
+/**
+ * Changes the style of filter buttons and filters projects
+ * @param {Element} allButtons 
+ * @param {Element} targetButton 
+ */
+function filterPortfolio(targetButton, allButtons) {
+    const projects =  document.querySelectorAll(".project-container")
+
+    /** Changes style of filterbuttons */
+    for (button of allButtons) {
+        if (button.classList.contains("active")) {
+            button.classList.remove("active")
+        }
+    }
+
+    targetButton.classList.add("active")
+
+    for (project of projects) {
+        if (targetButton.id !== "all") { 
+            if (project.classList.contains(targetButton.id)) {
+                project.style.display = "block";
+            }
+            else {
+                project.style.display = "none";
+            }
+        } else {
+            project.style.display = "block";
+        }
     }
 }

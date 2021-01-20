@@ -81,10 +81,6 @@ body * {
     Menues
 ---------------------------------------------------------------- */
 
-.primary-menu {
-    font-size: 1.4rem;
-}
-
 .secondary-menu {
     display: flex;
     flex-direction: row;
@@ -109,6 +105,24 @@ body * {
 .site-nav {
     position: absolute;
     display: none;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-bg-color);
+    z-index: 10;
+}
+
+.nav-inner {
+    width: 100%;
+    padding: 7rem 2rem 5rem 2rem;
+}
+
+.site-nav .primary-menu {
+    height: 100%;
+}
+
+.site-nav .primary-menu li {
+    margin-bottom: 2rem;
 }
 
 
@@ -120,6 +134,7 @@ body * {
     width: 100%;
     background-color: var(--secondary-bg-color);
     color: var(--primary-bg-color);
+    z-index: 100;
     grid-area: site-header;
 }
 
@@ -221,8 +236,10 @@ body * {
 }
 
 .content-inner {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 5rem 2rem;
 }
 
 /* Portfolio -----------------------------------------------------*/
@@ -242,10 +259,12 @@ body * {
 }
 
 .project-container {
-    width: 100%;
-    margin: 3rem 0 0 0;
+    display: inline-block;
+    margin: 3rem 0;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out, margin 0.4s ease-in-out;
+    width: 100%;
+    transition: margin 0.5s ease, opacity 0.25s ease;
+    cursor: pointer;
 }
 
 .grid-col {
@@ -303,7 +322,7 @@ body * {
 }
 
 .footer-inner {
-    padding: 1rem 0 2rem 0;
+    padding: 2rem 0 3rem 0;
     width: 100%;
     border-top: var(--border);
 }
