@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="stylesheet" href="./css/mobile.css">
-    <link rel="stylesheet" href="./css/tablet-sm.css" media="screen and (min-width: 480px)">
-    <link rel="stylesheet" href="./css/tablet-lg.css" media="screen and (min-width: 768px)">
-    <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 1024px)">
+    <link rel="stylesheet" href="./css/tablet-sm.css" media="screen and (min-width: 481px)">
+    <link rel="stylesheet" href="./css/tablet-lg.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width: 1025px)">
 
     <script src="https://unpkg.com/colcade@0/colcade.js"></script>
     <script src="./js/script.js"></script>
@@ -21,7 +21,7 @@
 <body>
 
     <!------ MOBILE MENU --------------------->
-    <div class="site-nav">
+    <div class="site-nav primary-bg secondary-txt">
         <nav class="nav-inner">
             <ul class="primary-menu">
                 <li title="Portfolio" class="active"><a href="./index.html">Portfolio</a></li>
@@ -37,7 +37,7 @@
     </div>
     
     <!------ HEADER -------------------------->
-    <header class="site-header">
+    <header class="site-header primary-bg secondary-txt">
         <div class="header-inner">
             <h1 class="site-title">
                 <a href="./index.html">Maria Helena Norén</a>
@@ -50,15 +50,15 @@
                 </ul>
             </nav>
             <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="default-bg"></span>
+                <span class="default-bg"></span>
+                <span class="default-bg"></span>
             </div>
         </div>
     </header>
 
     <!------ PAGE TITLE ---------------------->
-    <div class="page-title">
+    <div class="page-title primary-bg secondary-txt">
         <div class="title-inner">
             <h2 class="front-title">A front end developer with a background in graphic design, based in Gothenburg</h2>
         </div>
@@ -68,27 +68,53 @@
     <main class="page-content">
         <div class="content-inner">
             <div class="filter-buttons">
-                <button class="active" id="all">All</button>
-                <button id="web-project">Web projects</button>
-                <button id="graphic-design">Graphic design</button>
+                <button class="active" id="all" title="All">All</button>
+                <button id="web-project" title="Web projects">Web projects</button>
+                <button id="graphic-design" title="Graphic design">Graphic design</button>
             </div>
     
             <div class="portfolio-container">
                 <div class="grid-col grid-col--1"></div>
                 <div class="grid-col grid-col--2"></div>
-    
+
                 <div class="project-container web-project">
-                    <img src="./assets/portfolio_images/calendar/screenshot-background(1).jpg" alt="calendar project">
+                    <div class="image-container">
+                        <a href="./vader.html">
+                            <img src="./assets/portfolio_images/weather-website/vader(1).png" alt="weather forecast project">
+                        </a>
+                    </div>
                     <div class="project-description">
-                        <h3 class="project-title">Calendar</h3>
+                        <a href="./vader.html">
+                            <h3 class="project-title">Väder – Swedish weather forecast</h3>
+                        </a>
                         <div class="project-links">
-                            <a href="https://mariahelenanoren.github.io/calendar/">Demo</a><a href="https://github.com/mariahelenanoren/calendar">Code</a>
+                            <a href="https://mariahelenanoren.github.io/weather-forecast-sweden/">Demo</a><a href="https://github.com/mariahelenanoren/weather-forecast-sweden">Code</a>
                         </div>
                     </div>
                 </div>
-    
+
+                <div class="project-container graphic-design">
+                    <div class="image-container">
+                        <img src="./assets/portfolio_images/publication/photo(1).jpg" alt="publication project">
+                    </div>
+                    <div class="project-description">
+                        <h3 class="project-title">A Room of One's Own – a joint publication</h3>
+                    </div>
+                </div>
+
+                <div class="project-container graphic-design">
+                    <div class="image-container">
+                        <img src="./assets/portfolio_images/folder/folder-white(1).jpg" alt="tactile communication project">
+                    </div>
+                    <div class="project-description">
+                        <h3 class="project-title">Tactile communication</h3>
+                    </div>
+                </div>
+                
                 <div class="project-container web-project">
-                    <img src="./assets/portfolio_images/javascript-game/screenshot-background(1).jpg" alt="javascript game project">
+                    <div class="image-container">
+                        <img src="./assets/portfolio_images/javascript-game/javascript-game(1).png" alt="javascript game project">
+                    </div>
                     <div class="project-description">
                         <h3 class="project-title">Escape – a javascript game</h3>
                         <div class="project-links">
@@ -96,17 +122,25 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="project-container graphic-design">
-                    <img src="./assets/portfolio_images/folder/folder-black(1).jpg" alt="tactile communication project">
+                    <div class="image-container">
+                        <img src="./assets/portfolio_images/the-beast/the-beast.jpg" alt="cover art project">
+                    </div>
                     <div class="project-description">
-                        <h3 class="project-title">Tactile communication</h3>
+                        <h3 class="project-title">The beast – cover art</h3>
                     </div>
                 </div>
-                <div class="project-container graphic-design">
-                    <img src="./assets/portfolio_images/folder/folder-black(1).jpg" alt="tactile communication project">
+
+                <div class="project-container web-project">
+                    <div class="image-container">
+                        <img src="./assets/portfolio_images/calendar/calendar(1).jpg" alt="calendar project">
+                    </div>
                     <div class="project-description">
-                        <h3 class="project-title">Tactile communication</h3>
+                        <h3 class="project-title">Calendar</h3>
+                        <div class="project-links">
+                            <a href="https://mariahelenanoren.github.io/calendar/">Demo</a><a href="https://github.com/mariahelenanoren/calendar">Code</a>
+                        </div>
                     </div>
                 </div>
     

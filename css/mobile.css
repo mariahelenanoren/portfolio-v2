@@ -9,8 +9,8 @@
     --image-border: 1px solid #e0e0e0;
     --primary-txt-color: #1e1e1e;
     --secondary-txt-color: #5c5c5c;
-    --primary-bg-color: #FBFBFB;
-    --secondary-bg-color: #1F644F;
+    --primary-bg-color: #1F644F;
+    --secondary-bg-color: #FBFBFB;
 }
 
 
@@ -63,7 +63,7 @@ body {
     Roboto, 'Open Sans',
     'Helvetica Neue', sans-serif;
     
-    background-color: var(--primary-bg-color);
+    background-color: var(--secondary-bg-color);
     color: var(--primary-txt-color);
 }
 
@@ -76,6 +76,19 @@ body * {
     -webkit-font-smoothing: antialiased;
 }
 
+
+/* ---------------------------------------------------------------
+    Headlines
+---------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 700;
+}
 
 /* ---------------------------------------------------------------
     Menues
@@ -99,7 +112,7 @@ body * {
 }
 
 /* ---------------------------------------------------------------
-    Mobile menu
+    Mobile navigation
 ---------------------------------------------------------------- */
 
 .site-nav {
@@ -107,22 +120,27 @@ body * {
     display: none;
     width: 100%;
     height: 100%;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-bg-color);
     z-index: 10;
 }
 
 .nav-inner {
+    display: flex;
     width: 100%;
-    padding: 7rem 2rem 5rem 2rem;
+    max-width: 100rem;
+    height: 100%;
+    padding: 8rem 1.5rem 4rem 1.5rem;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .site-nav .primary-menu {
+    font-size: 1.4rem;
     height: 100%;
 }
 
 .site-nav .primary-menu li {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 
@@ -132,15 +150,15 @@ body * {
 
 .site-header {
     width: 100%;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-bg-color);
     z-index: 100;
     grid-area: site-header;
 }
 
 .header-inner {
     width: 100%;
-    padding: 1rem 2rem;
+    max-width: 100rem;
+    margin: auto;
+    padding: 1.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -149,12 +167,20 @@ body * {
 
 .site-title {
     width: fit-content;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: 'Merriweather', sans-serif;
 }
 
 .header-nav {
     display: none;
+}
+
+.header-nav .primary-menu {
+    display: flex;
+}
+
+.header-nav .primary-menu li {
+    margin-left: 3rem;
 }
 
 
@@ -168,9 +194,9 @@ body * {
 
 .nav-toggle span {
     position: absolute;
+    right: 0;
     width: calc(100% - 1rem);
     height: 2px;
-    background-color: var(--primary-bg-color);
     transition: .2s ease-in-out;
 }
 
@@ -191,20 +217,27 @@ body * {
 
 .page-title {
     width: 100%;
-    background-color: var(--secondary-bg-color);
-    color: var(--primary-bg-color);
     font-family: 'Merriweather', sans-serif;
     grid-area: page-title;
 }
 
 .title-inner {
     width: 100%;
-    max-width: 50rem;
-    padding: 4rem 2rem 3rem 2rem;
+    max-width: 100rem;
+    margin: auto;
+    padding: 5.5rem 1.5rem 0 1.5rem;
 }
 
 .front-title, .title {
     position: relative;
+}
+
+.front-title {
+    margin: 0 0 3.5rem 0;
+}
+
+.title {
+    margin: 0;
 }
 
 .front-title::before,
@@ -216,7 +249,7 @@ body * {
 }
 
 .front-title::before {
-    background-color: var(--primary-bg-color);
+    background-color: var(--secondary-bg-color);
     width: 5rem;
 }
 
@@ -237,16 +270,18 @@ body * {
 
 .content-inner {
     display: flex;
-    flex-direction: column;
     width: 100%;
-    padding: 3rem 2rem 5rem 2rem;
+    max-width: 100rem;
+    flex-direction: column;
+    padding: 4rem 1.5rem;
+    margin: auto;
 }
 
-/* Portfolio -----------------------------------------------------*/
+/* Portfolio ----------------------------------------------------*/
 
 .filter-buttons {
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -255,7 +290,17 @@ body * {
 }
 
 .filter-buttons button {
-    margin: 0.5rem 0 0.5rem 0.5rem;
+    margin: 0.25rem 0 0.25rem 0.5rem;
+    outline: none;
+}
+
+.filter-buttons button::after {
+    content: attr(title);
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    font-weight: 600;
 }
 
 .project-container {
@@ -267,19 +312,33 @@ body * {
     cursor: pointer;
 }
 
+.grid-col:last-of-type .project-container:last-of-type {
+    margin-bottom: 0!important;
+}
+
 .grid-col {
-    float: left;
+    float: right;
     width: 100%;
-    margin-right: 0;
+    margin-left: 0;
 }
 
 .grid-col:last-of-type {
-    margin-right: 0;
+    margin-left: 0;
+}
+
+.image-container {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    object-position: center;
+    object-fit: cover;
+    overflow: hidden;
+    border: var(--image-border);
 }
 
 .project-container img {
+    display: block;
     width: 100%;
-    border: var(--image-border)
 }
 
 .project-description {
@@ -307,13 +366,40 @@ body * {
 }
 
 
+/* Project page -------------------------------------------------*/
+
+.featured-image {
+    width: 100%;
+}
+
+.post {
+    padding: 3rem 0;
+    max-width: 40rem;
+}
+
+.post *:first-child {
+    margin-top: 0;
+}
+
+.post img {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.content-inner > img {
+    width: 100%;
+}
+
+
 /* ---------------------------------------------------------------
     Footer
 ---------------------------------------------------------------- */
 
 .site-footer {
     width: 100%;
-    padding: 0 2rem;
+    max-width: 100rem;
+    padding: 0 1.5rem;
+    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -324,12 +410,29 @@ body * {
 .footer-inner {
     padding: 2rem 0 3rem 0;
     width: 100%;
+    margin: auto;
     border-top: var(--border);
 }
 
 /* ---------------------------------------------------------------
     Functional classes
 ---------------------------------------------------------------- */
+
+.primary-bg {
+    background-color: var(--primary-bg-color);
+}
+
+.secondary-txt {
+    color: var(--secondary-bg-color);
+}
+
+.default-bg {
+    background-color: var(--secondary-bg-color);
+}
+
+.dark-bg {
+    background-color: var(--primary-txt-color);
+}
 
 .active {
     font-weight: 600;

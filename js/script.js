@@ -25,15 +25,19 @@ function addEventListeners() {
 
     for (let i = 0; i < filterButtons.length; i++) {
         filterButtons[i].addEventListener("click", () => filterPortfolio(filterButtons[i], filterButtons))
+        filterButtons[i].addEventListener("click", declareLoadAnimationElements)
     }
 }
 
 function createColcade() {
     // selector string as first argument
-    var colc = new Colcade( '.portfolio-container', {
-        columns: '.grid-col',
-        items: '.project-container'
-    });
+    const portfolio = document.querySelector(".portfolio-container")
+    if (portfolio) {
+        var colc = new Colcade( '.portfolio-container', {
+            columns: '.grid-col',
+            items: '.project-container'
+        });
+    }
 }
 
 /** Toggles the hamburger menu */
@@ -120,13 +124,11 @@ function declareLoadAnimationElements() {
  * @param {Element} element 
  */
 function initiateLoadAnimation(element) {
-    console.log(element.offsetTop)
     const viewportHeight = window.innerHeight;
-    console.log(viewportHeight)
     /** If top of element is  above bottom of page, change element style */
     if (element.getBoundingClientRect().top <= viewportHeight) {
         element.style.opacity = "100";
-        element.style.margin = "0 0 3rem 0";
+        element.style.margin = "0 0 4rem 0";
     }
 }
 

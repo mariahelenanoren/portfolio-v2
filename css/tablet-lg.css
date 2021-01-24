@@ -1,7 +1,86 @@
 /* TABLET LARGE -------------------------------------------------------*/
 /* Min-width: 768px */
 
+/* ---------------------------------------------------------------
+    Header
+---------------------------------------------------------------- */
+
+.header-nav {
+    display: flex;
+}
+
+.header-inner {
+    padding: 1.5rem 4rem;
+}
+
+
+/* Hamburger ---------------------------------------------------*/
+
+.nav-toggle {
+    display: none;
+}
+
+
+/* ---------------------------------------------------------------
+Page title
+---------------------------------------------------------------- */
+
+.title-inner {
+    padding: 7rem 4rem 0 4rem;
+}
+
+.front-title {
+    max-width: 45rem;
+    margin: 0 0 5rem 0;
+}
+
+.front-title, .title {
+    font-size: 2.5rem;
+}
+
+.front-title::before,
+.title::before {
+    position: absolute;
+    content: "";
+    height: 0.5rem;
+}
+
+
+.front-title::before {
+    width: 15rem;
+}
+
+
+/* ---------------------------------------------------------------
+Page content
+---------------------------------------------------------------- */
+
+.content-inner {
+    padding: 5rem 4rem;
+}
+
+/* Portfolio -----------------------------------------------------*/
+
 .grid-col {
-    width: 48%;
-    margin-right: 4%;
+    width: calc(50% - 2rem);
+    margin-left: 4rem;
+}
+
+.project-title {
+    font-size: 1.8rem;
+}
+
+/* Project page --------------------------------------------------*/
+
+.post {
+    padding: 4rem 0;
+}
+
+
+/* ---------------------------------------------------------------
+    Footer
+---------------------------------------------------------------- */
+
+.site-footer {
+    padding: 0 4rem;
 }
