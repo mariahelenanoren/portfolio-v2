@@ -109,8 +109,8 @@ Page content
     padding: 1.5rem 0;
 }
 
-.year, .expand-icon {
-    margin-bottom: 0.25rem;
+.header, .year, .expand-icon {
+    margin-bottom: 0.5rem;
 }
 
 
