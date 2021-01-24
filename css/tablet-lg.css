@@ -2,6 +2,22 @@
 /* Min-width: 768px */
 
 /* ---------------------------------------------------------------
+    Headlines
+---------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 6rem 0 2.5rem 0;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+/* ---------------------------------------------------------------
     Header
 ---------------------------------------------------------------- */
 
@@ -10,7 +26,7 @@
 }
 
 .header-inner {
-    padding: 1.5rem 4rem;
+    padding: 2rem 4rem;
 }
 
 
@@ -26,16 +42,15 @@ Page title
 ---------------------------------------------------------------- */
 
 .title-inner {
-    padding: 7rem 4rem 0 4rem;
+    padding: 7rem 4rem 2rem 4rem;
 }
 
 .front-title {
     max-width: 45rem;
-    margin: 0 0 5rem 0;
 }
 
 .front-title, .title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
 }
 
 .front-title::before,
@@ -61,19 +76,41 @@ Page content
 
 /* Portfolio -----------------------------------------------------*/
 
+.featured-image {
+    margin: 0 0 3.5rem 0;
+}
+
+.post-description {
+    margin: 0 0 3.5rem 0;
+}
+
 .grid-col {
-    width: calc(50% - 2rem);
-    margin-left: 4rem;
+    width: calc(50% - 1.5rem);
+    margin-left: 3rem;
 }
 
 .project-title {
     font-size: 1.8rem;
 }
 
-/* Project page --------------------------------------------------*/
+.project-description {
+    padding: 1.5rem 0;
+}
 
-.post {
-    padding: 4rem 0;
+
+/* About me page -----------------------------------------------*/
+
+.cv-container {
+    grid-template-areas:
+    "header year expand"
+    "description description ."
+    "expandable-content expandable-content .";
+
+    padding: 1.5rem 0;
+}
+
+.year, .expand-icon {
+    margin-bottom: 0.25rem;
 }
 
 
@@ -83,4 +120,13 @@ Page content
 
 .site-footer {
     padding: 0 4rem;
+}
+
+
+/* ---------------------------------------------------------------
+    Functional classes
+---------------------------------------------------------------- */
+
+.expandable-max-height {
+    max-height: 8rem;
 }

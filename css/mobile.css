@@ -8,9 +8,9 @@
     --border: 1px solid #A5A5A5;
     --image-border: 1px solid #e0e0e0;
     --primary-txt-color: #1e1e1e;
-    --secondary-txt-color: #5c5c5c;
-    --primary-bg-color: #1F644F;
-    --secondary-bg-color: #FBFBFB;
+    /* --secondary-txt-color: #5c5c5c; */
+    --primary-bg-color: #FBFBFB;
+    /*--primary-bg-color: #1F644F;*/
 }
 
 
@@ -86,8 +86,13 @@ h3,
 h4,
 h5,
 h6 {
+    margin: 4rem 0 2rem 0;
     font-family: 'Merriweather', sans-serif;
     font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
 }
 
 /* ---------------------------------------------------------------
@@ -121,12 +126,13 @@ h6 {
     width: 100%;
     height: 100%;
     z-index: 10;
+    background-color: var(--primary-bg-color);
 }
 
 .nav-inner {
     display: flex;
     width: 100%;
-    max-width: 100rem;
+    max-width: 120rem;
     height: 100%;
     padding: 8rem 1.5rem 4rem 1.5rem;
     margin: auto;
@@ -156,9 +162,9 @@ h6 {
 
 .header-inner {
     width: 100%;
-    max-width: 100rem;
+    max-width: 120rem;
     margin: auto;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -168,6 +174,7 @@ h6 {
 .site-title {
     width: fit-content;
     font-size: 1.2rem;
+    margin: 0;
     font-family: 'Merriweather', sans-serif;
 }
 
@@ -197,6 +204,7 @@ h6 {
     right: 0;
     width: calc(100% - 1rem);
     height: 2px;
+    background-color: var(--primary-txt-color);
     transition: .2s ease-in-out;
 }
 
@@ -223,20 +231,13 @@ h6 {
 
 .title-inner {
     width: 100%;
-    max-width: 100rem;
+    max-width: 120rem;
     margin: auto;
-    padding: 5.5rem 1.5rem 0 1.5rem;
+    padding: 5.5rem 1.5rem 1rem 1.5rem;
 }
 
 .front-title, .title {
     position: relative;
-}
-
-.front-title {
-    margin: 0 0 3.5rem 0;
-}
-
-.title {
     margin: 0;
 }
 
@@ -249,7 +250,7 @@ h6 {
 }
 
 .front-title::before {
-    background-color: var(--secondary-bg-color);
+    background-color: var(--primary-txt-color);
     width: 5rem;
 }
 
@@ -271,10 +272,14 @@ h6 {
 .content-inner {
     display: flex;
     width: 100%;
-    max-width: 100rem;
-    flex-direction: column;
+    max-width: 120rem;
     padding: 4rem 1.5rem;
     margin: auto;
+    flex-direction: column;
+}
+
+.content-inner > *:last-child {
+    margin-bottom: 0;
 }
 
 /* Portfolio ----------------------------------------------------*/
@@ -326,19 +331,10 @@ h6 {
     margin-left: 0;
 }
 
-.image-container {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    object-position: center;
-    object-fit: cover;
-    overflow: hidden;
-    border: var(--image-border);
-}
-
 .project-container img {
     display: block;
     width: 100%;
+    border: var(--image-border);
 }
 
 .project-description {
@@ -370,26 +366,105 @@ h6 {
 
 .featured-image {
     width: 100%;
+    margin: 0 0 2rem 0;
 }
 
 .post {
-    padding: 3rem 0;
-    max-width: 40rem;
+    max-width: 45rem;
 }
 
-.post *:first-child {
+.post > *:first-child {
     margin-top: 0;
 }
 
-.post img {
-    width: 100%;
-    margin-top: 2rem;
+.post > *:last-child {
+    margin-bottom: 0;
 }
 
-.content-inner > img {
-    width: 100%;
+.post-description {
+    margin: 0 0 2rem 0;
 }
 
+.project-image {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.col-2, .col-3 {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.col-2 img {
+    width: calc(100% / 2 - 0.75rem);
+}
+
+.col-3 img {
+    width: calc(100% / 3 - 1rem);
+}
+
+
+/* About me page -----------------------------------------------*/
+
+.profile-picture {
+    margin: 0 0 1rem 0!important;
+}
+
+.cv-container {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+    ". year expand"
+    "header header ."
+    "description description ."
+    "expandable-content expandable-content .";
+
+    padding: 1rem 0;
+    margin-bottom: 2.5rem;
+    border-top: var(--border);
+}
+
+.expandable-container {
+    cursor: pointer;
+}
+
+.header {
+    margin: 0 0 0.25rem 0;
+    align-self: center;
+    grid-area: header;
+}
+
+.year {
+    margin: 0 0 0.5rem 0;
+    align-self: center;
+    grid-area: year;
+}
+
+.expand-icon {
+    margin: 0 0 0.5rem 0.5rem;
+    align-self: center;
+    transition: transform 0.25s ease-in-out;
+    grid-area: expand;
+}
+
+.description {
+    margin: 0;
+    align-self: center;
+    grid-area: description;
+}
+
+.expandable-content {
+    height: 100%;
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+    align-self: center;
+    transition: max-height 0.25s ease-in-out;
+    grid-area: expandable-content;
+}
 
 /* ---------------------------------------------------------------
     Footer
@@ -397,7 +472,7 @@ h6 {
 
 .site-footer {
     width: 100%;
-    max-width: 100rem;
+    max-width: 120rem;
     padding: 0 1.5rem;
     margin: auto;
     display: flex;
@@ -423,7 +498,7 @@ h6 {
 }
 
 .secondary-txt {
-    color: var(--secondary-bg-color);
+    color: var(--secondary-txt-color);
 }
 
 .default-bg {
@@ -444,4 +519,8 @@ h6 {
 
 .scroll-lock {
     overflow: hidden;
+}
+
+.expandable-max-height {
+    max-height: 24rem;
 }

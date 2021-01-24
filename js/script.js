@@ -12,16 +12,16 @@ function main() {
 function addEventListeners() {
     const filterButtons = document.querySelectorAll(".filter-buttons button")
     const navToggle = document.querySelector(".nav-toggle")
-    //const expandableContainer = document.querySelectorAll(".expandable-container")
+    const expandableContainer = document.querySelectorAll(".expandable-container")
 
     navToggle.addEventListener("click", (event) => toggleHamburgerMenu(event))
     window.addEventListener("resize", (event) => toggleHamburgerMenu(event))
     window.addEventListener("scroll", declareLoadAnimationElements)
 
-    /* for (let i = 0; i < expandableContainer.length; i++) {
+    for (let i = 0; i < expandableContainer.length; i++) {
         let index = i;
         expandableContainer[i].addEventListener("click", () => toggleExpandableDiv(index))
-    } */
+    }
 
     for (let i = 0; i < filterButtons.length; i++) {
         filterButtons[i].addEventListener("click", () => filterPortfolio(filterButtons[i], filterButtons))
@@ -160,5 +160,28 @@ function filterPortfolio(targetButton, allButtons) {
         } else {
             project.style.display = "block";
         }
+    }
+}
+
+function toggleExpandableDiv(index) {
+    const expandableContent = document.querySelectorAll(".expandable-content")
+
+    if (expandlableDivIsOpen === false) {
+        expandlableDivIsOpen = true;
+        expandableContent[index].classList.add("expandable-max-height")
+        rotateArrow(index)
+    } else {
+        expandlableDivIsOpen = false;
+        expandableContent[index].classList.remove("expandable-max-height")
+        rotateArrow(index)
+    }
+}
+
+function rotateArrow(index) {
+    const arrow = document.querySelectorAll(".expandable-container .expand-icon")
+    if (expandlableDivIsOpen === false) {
+        arrow[index].style.transform = "rotate(0deg)"
+    } else if (expandlableDivIsOpen === true) {
+        arrow[index].style.transform = "rotate(180deg)"
     }
 }
