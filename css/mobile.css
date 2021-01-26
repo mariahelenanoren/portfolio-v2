@@ -8,7 +8,7 @@
     --border: 1px solid #A5A5A5;
     --image-border: 1px solid #e0e0e0;
     --primary-txt-color: #1e1e1e;
-    /* --secondary-txt-color: #5c5c5c; */
+    --secondary-txt-color: #5c5c5c;
     --primary-bg-color: #FBFBFB;
     /*--primary-bg-color: #1F644F;*/
 }
@@ -63,7 +63,7 @@ body {
     Roboto, 'Open Sans',
     'Helvetica Neue', sans-serif;
     
-    background-color: var(--secondary-bg-color);
+    background-color: var(--primary-bg-color);
     color: var(--primary-txt-color);
 }
 
@@ -105,11 +105,16 @@ h2 {
     text-decoration: underline;
 }
 
+.secondary-menu li a:hover {
+    color: var(--secondary-txt-color);
+}
+
 .secondary-menu li a::after {
     display: inline-block;
     text-decoration: none;
     margin: 0 0.5rem;
     content: "/";
+    color: var(--primary-txt-color);
 }
 
 .secondary-menu li:last-of-type a::after {
@@ -205,7 +210,7 @@ h2 {
     width: calc(100% - 1rem);
     height: 2px;
     background-color: var(--primary-txt-color);
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 
 .nav-toggle :nth-child(1) {
@@ -236,7 +241,9 @@ h2 {
     padding: 5.5rem 1.5rem 1rem 1.5rem;
 }
 
-.front-title, .title {
+.front-title,
+.title {
+    font-size: 2rem;
     position: relative;
     margin: 0;
 }
@@ -249,11 +256,7 @@ h2 {
     bottom: -0.5em;
 }
 
-.front-title::before {
-    background-color: var(--primary-txt-color);
-    width: 5rem;
-}
-
+.front-title::before,
 .title::before {
     background-color: var(--primary-txt-color);
     width: 5rem;
@@ -297,6 +300,7 @@ h2 {
 .filter-buttons button {
     margin: 0.25rem 0 0.25rem 0.5rem;
     outline: none;
+    cursor: pointer;
 }
 
 .filter-buttons button::after {
@@ -310,7 +314,7 @@ h2 {
 
 .project-container {
     display: inline-block;
-    margin: 3rem 0;
+    margin: 2rem 0;
     opacity: 0;
     width: 100%;
     transition: margin 0.5s ease, opacity 0.25s ease;
@@ -349,12 +353,16 @@ h2 {
 .project-links a {
     text-decoration: underline;
 }
+.project-links a:hover {
+    color: var(--secondary-txt-color);
+}
 
 .project-links a::after {
     display: inline-block;
     text-decoration: none;
     margin: 0 0.5rem;
     content: "/";
+    color: var(--primary-txt-color);
 }
 
 .project-links a:last-of-type::after {
@@ -363,11 +371,6 @@ h2 {
 
 
 /* Project page -------------------------------------------------*/
-
-.featured-image {
-    width: 100%;
-    margin: 0 0 2rem 0;
-}
 
 .post {
     max-width: 45rem;
@@ -382,29 +385,28 @@ h2 {
 }
 
 .post-description {
-    margin: 0 0 2rem 0;
+    margin: 0 0 3.5rem 0;
 }
 
 .project-image {
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin: 2rem 0;
+    transition: margin 0.5s ease, opacity 0.25s ease;
 }
 
 .col-2, .col-3 {
     display: flex;
     width: 100%;
-    margin-bottom: 1.5rem;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.col-2 img {
-    width: calc(100% / 2 - 0.75rem);
+.col-2 img, .col-3 img {
+    width: 100%;
+    margin: 2rem 0;
+    transition: margin 0.5s ease, opacity 0.25s ease;
 }
 
-.col-3 img {
-    width: calc(100% / 3 - 1rem);
-}
 
 
 /* About me page -----------------------------------------------*/
@@ -423,7 +425,7 @@ h2 {
     "expandable-content expandable-content .";
 
     padding: 1rem 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     border-top: var(--border);
 }
 
@@ -464,6 +466,67 @@ h2 {
     align-self: center;
     transition: max-height 0.25s ease-in-out;
     grid-area: expandable-content;
+}
+
+
+/* Contact page -------------------------------------------------*/
+
+form {
+    padding: 1rem 0 0 0;
+}
+
+.name-input, 
+.email-input,
+.message-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-input,
+.email-input {
+    width: calc(50% - 0.5rem);
+    margin-bottom: 2rem;
+}
+
+.name-input {
+    float: left;
+}
+
+.email-input {
+    float: right;
+}
+
+.message-input {
+    width: 100%;
+}
+
+label {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+input {
+    height: 2rem;
+    border: none;
+    color: white;
+    border-bottom: var(--border);
+}
+
+textarea {
+    min-height: 10rem;
+    border: none;
+    border-bottom: var(--border);
+    resize: vertical;
+
+}
+
+button[type="submit"] {
+    margin: 2rem 0 0 0;
+    padding: 0;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 /* ---------------------------------------------------------------
@@ -523,4 +586,9 @@ h2 {
 
 .expandable-max-height {
     max-height: 24rem;
+}
+
+.load-animation {
+    opacity: 100;
+    margin: 0 0 2rem 0!important;
 }

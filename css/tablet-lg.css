@@ -46,11 +46,11 @@ Page title
 }
 
 .front-title {
-    max-width: 45rem;
+    max-width: 42rem;
 }
 
 .front-title, .title {
-    font-size: 2.8rem;
+    font-size: 2.7rem;
 }
 
 .front-title::before,
@@ -76,14 +76,6 @@ Page content
 
 /* Portfolio -----------------------------------------------------*/
 
-.featured-image {
-    margin: 0 0 3.5rem 0;
-}
-
-.post-description {
-    margin: 0 0 3.5rem 0;
-}
-
 .grid-col {
     width: calc(50% - 1.5rem);
     margin-left: 3rem;
@@ -95,6 +87,21 @@ Page content
 
 .project-description {
     padding: 1.5rem 0;
+}
+
+
+/* Project page ------------------------------------------------*/
+
+.col-2, .col-3 {
+    flex-direction: row;
+}
+
+.col-2 img {
+    width: calc(100% / 2 - 0.75rem);
+}
+
+.col-3 img {
+    width: calc(100% / 3 - 1rem);
 }
 
 

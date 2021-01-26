@@ -111,7 +111,21 @@ function unCrossTheHamburger(navToggle) {
 /** Declares which elements should be animated */
 function declareLoadAnimationElements() {
     const projects = document.querySelectorAll(".project-container")
-    
+    const projectImages = document.querySelectorAll(".project-image")
+    const colImages = document.querySelectorAll(".col img")
+
+    if (colImages) {
+        for (let i = 0; i < colImages.length; i++) {
+            initiateLoadAnimation(colImages[i])
+        }
+    }
+
+    if (projectImages) {
+        for (let i = 0; i < projectImages.length; i++) {
+            initiateLoadAnimation(projectImages[i])
+        }
+    }
+
     if (projects) {
         for (let i = 0; i < projects.length; i++) {
             initiateLoadAnimation(projects[i])
@@ -127,8 +141,7 @@ function initiateLoadAnimation(element) {
     const viewportHeight = window.innerHeight;
     /** If top of element is  above bottom of page, change element style */
     if (element.getBoundingClientRect().top <= viewportHeight) {
-        element.style.opacity = "100";
-        element.style.margin = "0 0 4rem 0";
+        element.classList.add("load-animation");
     }
 }
 
