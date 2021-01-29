@@ -513,6 +513,7 @@ label[for="message"] {
 input[type="text"],
 input[type="email"] {
     height: 2rem;
+    padding: 0.5rem;
     border: none;
     color: var(--primary-txt-color);
     border-bottom: var(--border);
@@ -520,6 +521,7 @@ input[type="email"] {
 
 textarea {
     min-height: 10rem;
+    padding: 0.5rem;
     resize: vertical;
     border: none;
     border-bottom: var(--border);
