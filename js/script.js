@@ -13,12 +13,12 @@ function addEventListeners() {
     const filterButtons = document.querySelectorAll(".filter-buttons button")
     const navToggle = document.querySelector("#nav-toggle")
     const expandableContainer = document.querySelectorAll(".expandable-container")
-    const gdprContainer = document.querySelector("#gdpr-container")
+    const submitButton = document.querySelector("#submit-button")
 
     navToggle.addEventListener("click", (event) => toggleMobileMenu(event))
     window.addEventListener("resize", (event) => toggleMobileMenu(event))
     window.addEventListener("scroll", declareLoadAnimationElements)
-    gdprContainer.addEventListener("click", toggleCheckbox)
+    submitButton.addEventListener("click", (event) => validateContactForm(event))
 
     for (let i = 0; i < expandableContainer.length; i++) {
         let index = i;
@@ -211,12 +211,32 @@ function rotateArrow(index) {
     }
 }
 
-function toggleCheckbox() {
-    const checkbox = document.getElementById("gdpr")
+function validateContactForm(event) {
+    const nameInput = document.querySelector("#name")
+    const emailInput = document.querySelector("#email")
+    const messageTextField = document.querySelector("#message")
+    const gdprCheckbox = document.querySelector("#gdpr")
+    const gdprContainer = document.querySelector(".gdpr-container")
 
-    if (checkbox.checked) {
-        checkbox.checked = false;
+    const textInputs = [nameInput, emailInput, messageTextField]
+
+    let isFormValidated = false;
+
+    if (!nameInput.value || !emailInput.value || !messageTextField.value || !gdprCheckbox.checked) {
+        event.preventDefault()
+        for (const input of textInputs) {
+            if (!input.value) {
+                input.classList.add("no-validation")
+            } else {
+                input.classList.remove("no-validation")
+            }
+        }
+        if (!gdprCheckbox.checked) {
+            gdprContainer.classList.add("no-validation")
+        } else {
+            gdprContainer.classList.remove("no-validation")
+        }
     } else {
-        checkbox.checked = true;
+        isFormValidated = true;
     }
 }

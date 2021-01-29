@@ -476,6 +476,14 @@ form {
     padding: 1rem 0 0 0;
 }
 
+label[for="name"],
+label[for="email"],
+label[for="message"] {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    margin-bottom: 1rem!important;
+}
+
 .name-input, 
 .email-input,
 .message-input {
@@ -502,26 +510,23 @@ form {
     margin-bottom: 2rem;
 }
 
-label {
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-    margin-bottom: 1rem!important;
-}
-
-input {
+input[type="text"],
+input[type="email"] {
     height: 2rem;
-    margin: 0;
     border: none;
-    color: white;
+    color: var(--primary-txt-color);
     border-bottom: var(--border);
 }
 
 textarea {
     min-height: 10rem;
+    resize: vertical;
     border: none;
     border-bottom: var(--border);
-    resize: vertical;
-
+    font-family: 
+    Roboto, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+    color: var(--primary-txt-color);
 }
 
 .gdpr-container {
@@ -530,7 +535,8 @@ textarea {
     cursor: pointer;
 }
 
-label[for="gdpr"] {
+.gdpr-label {
+    margin: 0;
     font-size: 1rem;
 }
 
@@ -540,13 +546,13 @@ label[for="gdpr"] {
     flex-direction: row;
 }
 
-.gdpr-input input {
-    margin-right: 0.5rem;
-}
-
 .gdpr-input p {
     margin: 0;
     font-size: 1rem;
+}
+
+input[id="gdpr"] {
+    margin: 0.4rem 0.5rem 0.4rem 0;
 }
 
 button[type="submit"] {
@@ -556,6 +562,10 @@ button[type="submit"] {
     font-weight: 700;
     text-decoration: underline;
     cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    color: var(--secondary-txt-color);
 }
 
 /* ---------------------------------------------------------------
@@ -604,4 +614,9 @@ button[type="submit"] {
 .load-animation {
     opacity: 100;
     margin: 0 0 2rem 0!important;
+}
+
+.no-validation {
+    border-color: red!important;
+    background-color: #ffe5e3!important;
 }
