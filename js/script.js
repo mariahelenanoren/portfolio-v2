@@ -11,12 +11,14 @@ function main() {
 
 function addEventListeners() {
     const filterButtons = document.querySelectorAll(".filter-buttons button")
-    const navToggle = document.querySelector(".nav-toggle")
+    const navToggle = document.querySelector("#nav-toggle")
     const expandableContainer = document.querySelectorAll(".expandable-container")
+    const gdprContainer = document.querySelector("#gdpr-container")
 
-    navToggle.addEventListener("click", (event) => toggleHamburgerMenu(event))
-    window.addEventListener("resize", (event) => toggleHamburgerMenu(event))
+    navToggle.addEventListener("click", (event) => toggleMobileMenu(event))
+    window.addEventListener("resize", (event) => toggleMobileMenu(event))
     window.addEventListener("scroll", declareLoadAnimationElements)
+    gdprContainer.addEventListener("click", toggleCheckbox)
 
     for (let i = 0; i < expandableContainer.length; i++) {
         let index = i;
@@ -40,8 +42,8 @@ function createColcade() {
     }
 }
 
-/** Toggles the hamburger menu */
-function toggleHamburgerMenu(event) {
+/** Toggles the mobile menu */
+function toggleMobileMenu(event) {
     const siteNav = document.querySelector(".site-nav")
 
     if (event.type === "resize" && hamburgerMenuIsOpen === true) {
@@ -110,7 +112,7 @@ function unCrossTheHamburger(navToggle) {
 
 /** Declares which elements should be animated */
 function declareLoadAnimationElements() {
-    const projects = document.querySelectorAll(".project-container")
+    const projectPreviews = document.querySelectorAll(".project-container")
     const projectImages = document.querySelectorAll(".project-image")
     const colImages = document.querySelectorAll(".col img")
 
@@ -126,9 +128,9 @@ function declareLoadAnimationElements() {
         }
     }
 
-    if (projects) {
-        for (let i = 0; i < projects.length; i++) {
-            initiateLoadAnimation(projects[i])
+    if (projectPreviews) {
+        for (let i = 0; i < projectPreviews.length; i++) {
+            initiateLoadAnimation(projectPreviews[i])
         }
     }
 }
@@ -153,15 +155,17 @@ function initiateLoadAnimation(element) {
 function filterPortfolio(targetButton, allButtons) {
     const projects =  document.querySelectorAll(".project-container")
 
-    /** Changes style of filterbuttons */
+    /* Changes style of filterbuttons */
     for (button of allButtons) {
         if (button.classList.contains("active")) {
             button.classList.remove("active")
         }
     }
 
+    /* Changes style of the clicked button */
     targetButton.classList.add("active")
 
+    /* Filters projects */
     for (project of projects) {
         if (targetButton.id !== "all") { 
             if (project.classList.contains(targetButton.id)) {
@@ -176,6 +180,10 @@ function filterPortfolio(targetButton, allButtons) {
     }
 }
 
+/**
+ * Toggles expandable divs
+ * @param {Number} index 
+ */
 function toggleExpandableDiv(index) {
     const expandableContent = document.querySelectorAll(".expandable-content")
 
@@ -190,11 +198,25 @@ function toggleExpandableDiv(index) {
     }
 }
 
+/**
+ * Rotates arrows in expandable divs
+ * @param {Number} index 
+ */
 function rotateArrow(index) {
     const arrow = document.querySelectorAll(".expandable-container .expand-icon")
     if (expandlableDivIsOpen === false) {
         arrow[index].style.transform = "rotate(0deg)"
     } else if (expandlableDivIsOpen === true) {
         arrow[index].style.transform = "rotate(180deg)"
+    }
+}
+
+function toggleCheckbox() {
+    const checkbox = document.getElementById("gdpr")
+
+    if (checkbox.checked) {
+        checkbox.checked = false;
+    } else {
+        checkbox.checked = true;
     }
 }
