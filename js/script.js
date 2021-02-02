@@ -18,7 +18,9 @@ function addEventListeners() {
     navToggle.addEventListener("click", (event) => toggleMobileMenu(event))
     window.addEventListener("resize", (event) => toggleMobileMenu(event))
     window.addEventListener("scroll", declareLoadAnimationElements)
-    submitButton.addEventListener("click", (event) => validateContactForm(event))
+    if (submitButton) {
+        submitButton.addEventListener("click", (event, submitButton) => validateContactForm(event, submitButton))
+    }
 
     for (let i = 0; i < expandableContainer.length; i++) {
         let index = i;
@@ -153,6 +155,7 @@ function initiateLoadAnimation(element) {
  * @param {Element} targetButton 
  */
 function filterPortfolio(targetButton, allButtons) {
+    console.log("hello")
     const projects =  document.querySelectorAll(".project-container")
 
     /* Changes style of filterbuttons */

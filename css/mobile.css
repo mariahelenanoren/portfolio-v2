@@ -318,7 +318,6 @@ h2 {
     opacity: 0;
     width: 100%;
     transition: margin 0.5s ease, opacity 0.25s ease;
-    cursor: pointer;
 }
 
 .grid-col:last-of-type .project-container:last-of-type {
@@ -339,6 +338,12 @@ h2 {
     display: block;
     width: 100%;
     border: var(--image-border);
+    cursor: pointer;
+    transition: filter 0.25s ease-in-out;
+}
+
+.project-container img:hover {
+    filter: brightness(80%);
 }
 
 .project-description {
@@ -348,6 +353,7 @@ h2 {
 .project-title {
     margin: 0 0 0.25rem 0;
     font-family: 'Merriweather', sans-serif;
+    cursor: pointer;
 }
 
 .project-links a {
@@ -384,6 +390,11 @@ h2 {
     margin-bottom: 0;
 }
 
+.subheading {
+    font-size: 1.4rem;
+    margin: 0 0 1.5rem 0;
+}
+
 .post-description {
     margin: 0 0 3.5rem 0;
 }
@@ -391,6 +402,7 @@ h2 {
 .project-image {
     width: 100%;
     margin: 2rem 0;
+    border: var(--image-border);
     transition: margin 0.5s ease, opacity 0.25s ease;
 }
 
