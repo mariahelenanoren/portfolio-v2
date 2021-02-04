@@ -18,6 +18,7 @@ function addEventListeners() {
     navToggle.addEventListener("click", (event) => toggleMobileMenu(event))
     window.addEventListener("resize", (event) => toggleMobileMenu(event))
     window.addEventListener("scroll", declareLoadAnimationElements)
+    
     if (submitButton) {
         submitButton.addEventListener("click", (event, submitButton) => validateContactForm(event, submitButton))
     }
@@ -33,8 +34,8 @@ function addEventListeners() {
     }
 }
 
+/** Creates colcade for mansonry grid */
 function createColcade() {
-    // selector string as first argument
     const portfolio = document.querySelector(".portfolio-container")
     if (portfolio) {
         var colc = new Colcade( '.portfolio-container', {
@@ -214,6 +215,10 @@ function rotateArrow(index) {
     }
 }
 
+/**
+ * Validates the contact form
+ * @param {Event} event 
+ */
 function validateContactForm(event) {
     const nameInput = document.querySelector("#name")
     const emailInput = document.querySelector("#email")
@@ -222,8 +227,6 @@ function validateContactForm(event) {
     const gdprContainer = document.querySelector(".gdpr-container")
 
     const textInputs = [nameInput, emailInput, messageTextField]
-
-    let isFormValidated = false;
 
     if (!nameInput.value || !emailInput.value || !messageTextField.value || !gdprCheckbox.checked) {
         event.preventDefault()
@@ -239,7 +242,5 @@ function validateContactForm(event) {
         } else {
             gdprContainer.classList.remove("no-validation")
         }
-    } else {
-        isFormValidated = true;
     }
 }
