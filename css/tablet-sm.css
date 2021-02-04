@@ -6,7 +6,7 @@
 ---------------------------------------------------------------- */
 
 .nav-inner {
-    padding: 9rem 3rem 6rem 3rem;
+    padding: 9rem 3rem 5rem 3rem;
 }
 
 
@@ -49,6 +49,14 @@
 
 .project-title {
     font-size: 1.6rem;
+}
+
+
+/* Contact page ------------------------------------------------*/
+
+.name-input,
+.email-input {
+    width: calc(50% - 0.5rem);
 }
 
 

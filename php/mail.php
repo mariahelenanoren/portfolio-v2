@@ -4,7 +4,7 @@
 	$message = $_POST["message"];
 
 	$to = 'hello@mariahelenanoren.com';
-	$subject = 'Mail from ' . $name . "via contact form";
+	$subject = 'Mail from ' . $name . " via contact form";
 	$message = $message;
 	$headers = 'From: ' . $email . "\r\n" .
 	'Reply-To: ' . $email . "\r\n" .

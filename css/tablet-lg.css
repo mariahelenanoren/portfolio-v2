@@ -14,7 +14,7 @@ h6 {
 }
 
 h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 /* ---------------------------------------------------------------
@@ -60,9 +60,12 @@ Page title
     height: 0.5rem;
 }
 
+.title::before {
+    width: 5rem;
+}
 
 .front-title::before {
-    width: 15rem;
+    width: 10rem;
 }
 
 
@@ -117,7 +120,7 @@ Page content
 }
 
 .header, .year, .expand-icon {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 

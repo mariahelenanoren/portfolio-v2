@@ -57,7 +57,7 @@ body {
     "page-content"
     "site-footer";
     
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     font-family: 
     Roboto, 'Open Sans',
@@ -92,7 +92,7 @@ h6 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 /* ---------------------------------------------------------------
@@ -139,19 +139,19 @@ h2 {
     width: 100%;
     max-width: 120rem;
     height: 100%;
-    padding: 8rem 1.5rem 4rem 1.5rem;
+    padding: 7rem 1.5rem 3rem 1.5rem;
     margin: auto;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .site-nav .primary-menu {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     height: 100%;
 }
 
 .site-nav .primary-menu li {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 
@@ -178,7 +178,7 @@ h2 {
 
 .site-title {
     width: fit-content;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 0;
     font-family: 'Merriweather', sans-serif;
 }
@@ -201,7 +201,7 @@ h2 {
 .nav-toggle {
     position: relative;
     width: 2.8rem;
-    height: calc(18px + 2px);
+    height: calc(18px + 4px);
 }
 
 .nav-toggle span {
@@ -238,12 +238,12 @@ h2 {
     width: 100%;
     max-width: 120rem;
     margin: auto;
-    padding: 5.5rem 1.5rem 1rem 1.5rem;
+    padding: 4rem 1.5rem 1rem 1.5rem;
 }
 
 .front-title,
 .title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     position: relative;
     margin: 0;
 }
@@ -254,12 +254,15 @@ h2 {
     content: "";
     height: 0.3rem;
     bottom: -0.5em;
+    background-color: var(--primary-txt-color);
 }
 
-.front-title::before,
 .title::before {
-    background-color: var(--primary-txt-color);
-    width: 5rem;
+    width: 3.5rem;
+}
+
+.front-title::before {
+    width: 6rem;
 }
 
 
@@ -276,7 +279,7 @@ h2 {
     display: flex;
     width: 100%;
     max-width: 120rem;
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem;
     margin: auto;
     flex-direction: column;
 }
@@ -289,7 +292,7 @@ h2 {
 
 .filter-buttons {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -298,7 +301,8 @@ h2 {
 }
 
 .filter-buttons button {
-    margin: 0.25rem 0 0.25rem 0.5rem;
+    margin: 0.35rem 0 0.35rem 1.5rem;
+    padding: 0;
     outline: none;
     cursor: pointer;
 }
@@ -391,7 +395,7 @@ h2 {
 }
 
 .subheading {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     margin: 0 0 1.5rem 0;
 }
 
@@ -425,7 +429,7 @@ h2 {
 
 .profile-picture {
     width: 100%;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.5rem 0;
 }
 
 .cv-container {
@@ -449,6 +453,7 @@ h2 {
 .header {
     margin: 0 0 0.25rem 0;
     align-self: center;
+    font-size: 1.1rem;
     grid-area: header;
 }
 
@@ -484,13 +489,13 @@ h2 {
 
 /* Contact page -------------------------------------------------*/
 
-form {
+.contact-form {
     padding: 1rem 0 0 0;
 }
 
-label[for="name"],
-label[for="email"],
-label[for="message"] {
+.contact-form label[for="name"],
+.contact-form label[for="email"],
+.contact-form label[for="message"] {
     font-family: 'Merriweather', serif;
     font-weight: 700;
     margin-bottom: 1rem!important;
@@ -503,12 +508,6 @@ label[for="message"] {
     flex-direction: column;
 }
 
-.name-input,
-.email-input {
-    width: calc(50% - 0.5rem);
-    margin-bottom: 2rem;
-}
-
 .name-input {
     float: left;
 }
@@ -517,26 +516,32 @@ label[for="message"] {
     float: right;
 }
 
+.name-input,
+.email-input,
 .message-input {
     width: 100%;
     margin-bottom: 2rem;
 }
 
-input[type="text"],
-input[type="email"] {
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
     height: 2rem;
     padding: 0.5rem;
     border: none;
     color: var(--primary-txt-color);
     border-bottom: var(--border);
+    border-radius: 0;
+    -webkit-appearance: none;
 }
 
-textarea {
+.contact-form textarea {
     min-height: 10rem;
     padding: 0.5rem;
     resize: vertical;
     border: none;
     border-bottom: var(--border);
+    border-radius: 0;
+    -webkit-appearance: none;
     font-family: 
     Roboto, 'Open Sans',
     'Helvetica Neue', sans-serif;
@@ -569,7 +574,7 @@ input[id="gdpr"] {
     margin: 0.4rem 0.5rem 0.4rem 0;
 }
 
-button[type="submit"] {
+.contact-form button[type="submit"] {
     margin: 2rem 0 0 0;
     padding: 0;
     font-family: 'Merriweather', serif;
@@ -578,7 +583,7 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.contact-form button[type="submit"]:hover {
     color: var(--secondary-txt-color);
 }
 
